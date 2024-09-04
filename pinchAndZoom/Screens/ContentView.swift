@@ -15,10 +15,13 @@ struct ContentView: View {
     @State private var imageOffset: CGSize = .zero
     @State private var isSideDrawerOpen = false
     @State private var chevronIcon = "chevron.compact.left"
+    @State private var imageIndex = 1
     
     let deviceMaxWidth = UIScreen.main.bounds.size.width - 60
     let deviceMaxHeight = UIScreen.main.bounds.size.height
     let maxScaledLevel: CGFloat = 5
+    
+    let pages = pageData
     
     func onChanged (_ value: DragGesture.Value) {
         withAnimation(.smooth){
@@ -41,11 +44,15 @@ struct ContentView: View {
         imageOffset = .zero
     }
     
+    func getImageBytIndex() -> String {
+        return pages[imageIndex - 1].imageName
+    }
+    
     var body: some View {
         NavigationView{
             ZStack{
                 Color.clear
-                Image("magazine-front-cover")
+                Image(getImageBytIndex())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .cornerRadius(10)
@@ -159,22 +166,38 @@ struct ContentView: View {
                         .frame(height: 40)
                         .padding(8)
                         .foregroundColor(.secondary)
-                        .onTapGesture(perform: {
-                            chevronIcon = isSideDrawerOpen ? "chevron.compact.left" : "chevron.compact.right"
-                            withAnimation(.smooth(duration: 0.5)) {
-                                isSideDrawerOpen.toggle()
+                    
+                    ForEach(pages) { page in
+                        Image(page.thumbImageName)
+                            .resizable()
+                            .scaledToFit()
+                            .cornerRadius(10)
+                            .opacity(isAnimating ? 1 : 0)
+                            .animation(.smooth(duration: isSideDrawerOpen ? 0.6 : 0.45), value: isSideDrawerOpen)
+                            .onTapGesture {
+                                chevronIcon =  "chevron.compact.left"
+                                withAnimation(.smooth) {
+                                    isSideDrawerOpen.toggle()
+                                    imageIndex = page.id
+                                }
                             }
-                        })
+                    }
 
                     Spacer()
                 }
-                .padding(.vertical, 20)
+                .padding(.vertical, 5)
                 .padding(.horizontal)
                 .background(.ultraThinMaterial)
                 .opacity(isAnimating ? 1 : 0)
                 .cornerRadius(20)
                 .offset(x: isSideDrawerOpen ? 20 : 215, y: UIScreen.main.bounds.height / 12)
                 .frame(width: 260)
+                .onTapGesture(perform: {
+                    chevronIcon = isSideDrawerOpen ? "chevron.compact.left" : "chevron.compact.right"
+                    withAnimation(.smooth(duration: 0.5)) {
+                        isSideDrawerOpen.toggle()
+                    }
+                })
             }
         }
         .navigationViewStyle(.stack)
