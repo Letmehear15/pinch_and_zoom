@@ -11,6 +11,8 @@
 		E845D8A72C84924C00C8DE58 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845D8A62C84924C00C8DE58 /* ContentView.swift */; };
 		E845D8A92C84924D00C8DE58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E845D8A82C84924D00C8DE58 /* Assets.xcassets */; };
 		E845D8AC2C84924D00C8DE58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E845D8AB2C84924D00C8DE58 /* Preview Assets.xcassets */; };
+		E8EC85BF2C85CD5D0049AE6F /* InfoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC85BE2C85CD5D0049AE6F /* InfoPanelView.swift */; };
+		E8EC85C12C85DB310049AE6F /* ControlIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC85C02C85DB310049AE6F /* ControlIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E845D8A62C84924C00C8DE58 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E845D8A82C84924D00C8DE58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E845D8AB2C84924D00C8DE58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E8EC85BE2C85CD5D0049AE6F /* InfoPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPanelView.swift; sourceTree = "<group>"; };
+		E8EC85C02C85DB310049AE6F /* ControlIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 		E8F037542C849864003E2058 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8EC85BE2C85CD5D0049AE6F /* InfoPanelView.swift */,
+				E8EC85C02C85DB310049AE6F /* ControlIcon.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -171,6 +177,8 @@
 			files = (
 				E845D8A72C84924C00C8DE58 /* ContentView.swift in Sources */,
 				E845D8A52C84924C00C8DE58 /* pinchAndZoomApp.swift in Sources */,
+				E8EC85C12C85DB310049AE6F /* ControlIcon.swift in Sources */,
+				E8EC85BF2C85CD5D0049AE6F /* InfoPanelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
